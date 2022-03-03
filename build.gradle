@@ -27,6 +27,9 @@ implementation group: 'org.springframework.boot', name: 'spring-boot-starter-act
 	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
 	annotationProcessor 'org.projectlombok:lombok:1.18.22'
 	implementation "org.springdoc:springdoc-openapi-ui:1.6.3"
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-amqp
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-amqp', version: '2.6.1'
+
 }
 bootJar {
     baseName = 'gs-spring-boot'
