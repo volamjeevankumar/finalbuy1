@@ -7,6 +7,7 @@ import com.example.demo.entity.response.BookingResponse;
 import com.example.demo.exceptionfamily.BookingNotFoundException;
 import com.example.demo.repo.BookingRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -14,7 +15,8 @@ import java.util.Optional;
 public class BookingResponseService {
     @Autowired
     private BookingRepo bookingRepo;
-
+    @Value("${self.link}")
+    private String selfLink;
 
     public BookingResponse createBookingResponse(String id) throws BookingNotFoundException {
         BookingResponse bookingResponse=new BookingResponse();
@@ -31,7 +33,7 @@ public class BookingResponseService {
            bookingResponse.setCreatedAt( entity.get().getCreatedAt());
            bookingResponse.setLinks(new Links());
            bookingResponse.getLinks().setSelf(new Self());
-          bookingResponse.getLinks().getSelf().setHref( bookingResponse.getLinks().getSelf().getHref()+id);
+           bookingResponse.getLinks().getSelf().setHref(selfLink+id);
           return bookingResponse;
         }
         else{

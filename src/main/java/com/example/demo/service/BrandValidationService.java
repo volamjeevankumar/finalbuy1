@@ -22,7 +22,7 @@ public class BrandValidationService {
 		String brandLowerCase = brand.toLowerCase();
 
 
-		List<String> brandNames=new ArrayList<String>();
+		List<String> brandNames= new ArrayList<>();
 		brandNames.add("gap");
 		brandNames.add("kaira");
 		brandNames.add("levis");
